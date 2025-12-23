@@ -12,8 +12,25 @@ export const fetchProducts = asyncHandler(async function (req, res, next) {
 
   return res.status(200).json({
     success: true,
-    message: "Product created successfully",
+    message: "Fetch all products successfully",
+    numOfProducts: products.length,
     products,
+  });
+});
+
+export const fetchProduct = asyncHandler(async function (req, res, next) {
+  const product = await productModel.findById(req.params.id);
+
+  // console.log("product:", product);
+
+  if (!product) {
+    return next(new AppError(404, "Product not found"));
+  }
+
+  return res.status(200).json({
+    success: true,
+    message: "fetch product successfully",
+    product,
   });
 });
 

@@ -1,10 +1,12 @@
 import express from "express";
-import { createProduct, fetchProducts } from "../controllers/productController.js";
+import { createProduct, fetchProduct, fetchProducts } from "../controllers/productController.js";
 import { body } from "express-validator";
 
 const router = express.Router();
 
 router.get("/products", fetchProducts);
+
+router.get("/products/:id", fetchProduct);
 
 router.post(
   "/products",
