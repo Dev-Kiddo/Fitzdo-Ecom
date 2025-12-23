@@ -3,6 +3,17 @@ import connectDB from "./config/connectDB.js";
 import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
 
+process.on("uncaughtException", (err) => {
+  console.log(`Uncaught Exception Err! Server is shutting down. ${err.message}`);
+  process.exit(1);
+});
+
+// will trigger whenever unhandled promise rejection happen
+process.on("unhandledRejection", (err) => {
+  console.log(`Unhandled rejection Err! Server is shutting down. ${err.message}`);
+  process.exit(1);
+});
+
 const connectServer = async function () {
   const Database = await connectDB();
   const PORT = process.env.PORT || 6173;
