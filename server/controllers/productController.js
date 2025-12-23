@@ -1,8 +1,9 @@
 import productModel from "../models/productModel.js";
 import { validationResult } from "express-validator";
 import AppError from "../utils/AppError.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 
-export const fetchProducts = async function (req, res, next) {
+export const fetchProducts = asyncHandler(async function (req, res, next) {
   const products = await productModel.find({});
 
   if (products.length === 0) {
@@ -14,9 +15,9 @@ export const fetchProducts = async function (req, res, next) {
     message: "Product created successfully",
     products,
   });
-};
+});
 
-export const createProduct = async function (req, res, next) {
+export const createProduct = asyncHandler(async function (req, res, next) {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -41,4 +42,4 @@ export const createProduct = async function (req, res, next) {
     message: "Product created successfully",
     product,
   });
-};
+});
