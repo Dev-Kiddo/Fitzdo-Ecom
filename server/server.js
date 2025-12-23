@@ -12,11 +12,10 @@ const connectServer = async function () {
   }
 
   console.log(`${Database.connection.host} connected successfully`);
+
   app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
   });
 };
 
 connectServer();
-
-
