@@ -2,6 +2,14 @@ import app from "./app.js";
 import connectDB from "./config/connectDB.js";
 import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+  secure: true, // Ensures HTTPS URLs are generated
+});
 
 process.on("uncaughtException", (err) => {
   console.log(`Uncaught Exception Err! Server is shutting down. ${err.message}`);
