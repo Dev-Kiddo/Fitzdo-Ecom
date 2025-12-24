@@ -1,11 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
 const NavBar = () => {
+  const { user } = useSelector((state) => state.user);
+
+  let userName;
+  // console.log(user);
+  if (user) {
+    const { email } = user;
+    userName = email.split(".")[0];
+  }
+
   return (
     <header className="flex flex-col w-full max-w-7xl mx-auto gap-0.5">
       <section className="bg-white py-2 px-4 rounded-t-xl flex justify-between items-center">
-        <div>Products List</div>
+        <div>Hello!</div>
         <div className="w-3xl flex gap-12">
           <form className="max-w-md mx-auto flex-1">
             <div className="relative">
@@ -26,8 +36,8 @@ const NavBar = () => {
 
           <div className="flex items-center gap-2.5">
             <div className="font-medium text-right">
-              <div className="text-sm">Prasanth S</div>
-              <div className="text-xs font-normal text-body">Fullstack Developer</div>
+              <div className="text-sm capitalize">{userName ? userName : "Guest User"}</div>
+              <div className="text-xs font-normal text-body">{userName ? "Fullstack Developer" : "-"}</div>
             </div>
             <Link to="/register">
               <img className="w-10 h-10 p-1 rounded-full ring-gray-medium ring-2 ring-default" src="./profile-picture.jpg" alt="avatar" />
