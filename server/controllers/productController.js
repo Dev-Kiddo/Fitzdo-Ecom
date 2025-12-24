@@ -46,6 +46,8 @@ export const createProduct = asyncHandler(async function (req, res, next) {
     });
   }
 
+  // console.log(`User:${req.user} creating new product...`);
+
   const existingProduct = await productModel.findOne({ title: req.body.title });
 
   if (existingProduct) {

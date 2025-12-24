@@ -1,6 +1,7 @@
 import express from "express";
 import { createProduct, fetchProduct, fetchProducts } from "../controllers/productController.js";
 import { body } from "express-validator";
+import auth from "../middlewares/auth.js";
 
 const router = express.Router();
 
@@ -19,6 +20,7 @@ router.post(
     body("mrp").isFloat({ min: 0 }).withMessage("MRP must be a positive number"),
     body("stock").isInt({ min: 0 }).withMessage("Stock must be a non-negative integer"),
   ],
+  auth,
   createProduct
 );
 

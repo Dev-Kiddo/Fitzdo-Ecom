@@ -13,7 +13,7 @@ export const registerUser = asyncHandler(async function (req, res, next) {
     return res.status(400).json({ errors: error.array() });
   }
 
-  const { username, email, password, avatar } = req.body;
+  const { email, password, avatar } = req.body;
 
   const existingUser = await userModel.findOne({ email });
 
@@ -21,7 +21,7 @@ export const registerUser = asyncHandler(async function (req, res, next) {
     return next(new AppError(401, "User already exists. Please log in"));
   }
 
-  const user = new userModel({ username, email, password });
+  const user = new userModel({ email, password });
 
   await user.save();
 
@@ -54,7 +54,7 @@ export const loginUser = asyncHandler(async function (req, res, next) {
   const isMatch = await user.checkPassword(password);
 
   if (!isMatch) {
-    return next(new AppError(401, "Username or password you entered is incorrect"));
+    return next(new AppError(401, "Email or password you entered is incorrect"));
   }
 
   const token = jwt.sign({ user: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });

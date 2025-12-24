@@ -7,7 +7,6 @@ const router = express.Router();
 router.post(
   "/register",
   [
-    body("username").notEmpty().withMessage("Username is required"),
     body("email").notEmpty().withMessage("Email is required").isEmail().withMessage("'Please provide a valid email address'"),
     body("password").notEmpty().withMessage("Password is required").isLength({ min: 4 }).withMessage("Password must be at least 6 characters long"),
   ],
