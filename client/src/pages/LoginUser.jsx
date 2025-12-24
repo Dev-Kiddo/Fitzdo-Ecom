@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
+import { NavLink } from "react-router-dom";
+
 
 const LoginUser = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +15,7 @@ const LoginUser = () => {
   }
 
   return (
-    <section className="w-full h-screen flex items-center justify-center">
+    <section className="w-full h-screen flex justify-center">
       <div className="w-full max-w-lg p-6">
         <div className="text-2xl font-bold mb-10 flex justify-center">
           <img src="./fitzdo_circle.svg" alt="logo" height="60" className="pt-2 pb-2" />
@@ -47,6 +49,15 @@ const LoginUser = () => {
             value={formData.password}
             onChange={(e) => handleFormData(e)}
           />
+        </div>
+
+        <div className="mb-4">
+          <p to="/login" className="text-sm text-gray-dark">
+            Don't have an account?{" "}
+            <NavLink to="/register" className="text-blue underline">
+              Register here
+            </NavLink>
+          </p>
         </div>
 
         <CustomButton btnText="Login" />

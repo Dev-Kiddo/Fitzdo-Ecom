@@ -1,13 +1,21 @@
-import Button from "./components/CustomButton";
-import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import Layout from "./components/Layout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterUser from "./pages/RegisterUser";
+import LoginUser from "./pages/LoginUser";
+import Products from "./components/Products";
 
 function App() {
   return (
-    <div className="text-5xl text text-blue-600">
-      <NavBar />
-      <RegisterUser />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Products />} />
+          <Route path="login" element={<LoginUser />} />
+          <Route path="register" element={<RegisterUser />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

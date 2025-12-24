@@ -4,7 +4,7 @@
 
 @layer components {
   .btn-offset {
-    @apply relative w-40 h-15 px-5 py-2 text-[1.1rem] text-white border border-black transition-all duration-150 ease-in;
+    @apply relative w-40 h-14 px-5 py-2 text-[1.1rem] text-white border border-black transition-all duration-150 ease-in;
   }
 
   .btn-offset::after {
@@ -30,10 +30,15 @@
   --color-blue: #0080fe;
   --color-gray-dark: #3d3d3d;
   --color-gray-medium: #898989;
+  --color-gray-light: #f2f2f2;
+  --color-black: #121212;
+  --color-white: #fff;
 
   --font-primary: "Geom", sans-serif;
 }
 
 body {
   font-family: var(--font-primary);
+  color: var(--color-black);
+  background-color: var(--color-gray-light);
 }

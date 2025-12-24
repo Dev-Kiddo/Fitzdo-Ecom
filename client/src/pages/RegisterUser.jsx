@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
+import { Link, NavLink } from "react-router-dom";
 
 const RegisterUser = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ const RegisterUser = () => {
   }
 
   return (
-    <section className="w-full h-screen flex items-center justify-center">
+    <section className="w-full h-screen flex justify-center">
       <div className="w-full max-w-lg p-6">
         <div className="text-2xl font-bold mb-10 flex justify-center">
           <img src="./fitzdo_circle.svg" alt="logo" height="60" className="pt-2 pb-2" />
@@ -49,7 +50,13 @@ const RegisterUser = () => {
           />
         </div>
 
-        <div className="flex items-start mb-6">
+        <div className="mb-4">
+          <p to="/login" className="text-sm text-gray-dark">
+            Already have an account? <NavLink to="/login" className="text-blue underline">Login here</NavLink>
+          </p>
+        </div>
+
+        <div className="flex items-start mb-2">
           <div>
             <input type="checkbox" className="w-4 h-4 border mt-1 flex items-center justify-center transition-colors duration-200 border-black bg-white"></input>
           </div>
