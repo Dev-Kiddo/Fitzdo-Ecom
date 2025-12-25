@@ -5,7 +5,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 const ProductSlider = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const product = ["/product-placeholder.png", "/product-placeholder.png", "/product-placeholder.png"];
+  const product = ["/product-placeholder.png", "/product-placeholder.png", "/product-placeholder.png", "/product-placeholder.png"];
 
   return (
     <>

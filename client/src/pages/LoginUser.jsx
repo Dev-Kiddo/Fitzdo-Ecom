@@ -6,7 +6,7 @@ import { loginUser, removeError, removeMessage } from "../features/userSlice";
 import { toast } from "react-toastify";
 
 const LoginUser = () => {
-  const { message, error } = useSelector((state) => state.user);
+  const { message, error, loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -53,7 +53,7 @@ const LoginUser = () => {
           <img src="./fitzdo_circle.svg" alt="logo" height="60" className="pt-2 pb-2" />
         </div>
 
-        <h2 className="text-3xl text-black font-medium mb-6 capitalize">Register account here</h2>
+        <h2 className="text-3xl text-black font-medium mb-6 capitalize">Login to Your account</h2>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-5">

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import CustomButton from "../components/CustomButton";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser, removeError } from "../features/userSlice";
 import { toast } from "react-toastify";
 import { removeMessage } from "../features/userSlice";
 
 const RegisterUser = () => {
-  const { message, error } = useSelector((state) => state.user);
+  const { message, error, loading, success } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -35,8 +36,12 @@ const RegisterUser = () => {
         toast.success(message);
         dispatch(removeMessage());
       }
+
+      if (success) {
+        navigate("/login");
+      }
     },
-    [message, dispatch]
+    [message, dispatch, navigate, success]
   );
 
   useEffect(

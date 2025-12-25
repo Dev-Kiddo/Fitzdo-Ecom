@@ -28,6 +28,7 @@ const userSlice = createSlice({
     user: null,
     loading: false,
     message: null,
+    success: false,
   },
   reducers: {
     removeError: function (state) {
@@ -43,12 +44,14 @@ const userSlice = createSlice({
       state.loading = true;
       state.error = null;
       state.message = null;
+      state.success = false;
     });
     builder.addCase(registerUser.fulfilled, (state, action) => {
       console.log("action:", action);
 
-      state.user = action.payload.user;
+      // state.user = action.payload.user;
       state.message = action.payload.message;
+      state.success = true;
       state.loading = false;
       state.error = null;
     });

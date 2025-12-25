@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <header className="flex flex-col w-full max-w-7xl mx-auto gap-0.5">
       <section className="bg-white py-2 px-4 rounded-t-xl flex justify-between items-center">
-        <div>Hello!</div>
+        <div>Hello...👋</div>
         <div className="w-3xl flex gap-12">
           <form className="max-w-md mx-auto flex-1">
             <div className="relative">
