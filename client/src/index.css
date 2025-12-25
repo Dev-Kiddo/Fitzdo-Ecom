@@ -23,6 +23,22 @@
   .btn-offset:active::after {
     @apply bg-neutral-800;
   }
+
+  /* .swiper-wrapper {
+    @apply gap-2 basis-auto;
+  } */
+
+  /* .swiper-slide {
+    @apply flex-1;
+    } */
+
+  .sliderThumbs > .swiper-wrapper {
+    @apply gap-2 basis-auto;
+  }
+
+  .sliderThumbs * .swiper-slide {
+    @apply flex-1;
+  }
 }
 
 @theme {

@@ -40,7 +40,7 @@ const NavBar = () => {
               <div className="text-xs font-normal text-body">{userName ? "Fullstack Developer" : "-"}</div>
             </div>
             <Link to="/register">
-              <img className="w-10 h-10 p-1 rounded-full ring-gray-medium ring-2 ring-default" src="./profile-picture.jpg" alt="avatar" />
+              <img className="w-10 h-10 p-1 rounded-full ring-gray-medium ring-2 ring-default" src="/profile-picture.jpg" alt="avatar" />
             </Link>
           </div>
         </div>

@@ -74,8 +74,6 @@ const userSlice = createSlice({
       state.error = null;
     });
     builder.addCase(loginUser.rejected, (state, action) => {
-      //console.log(action.payload);
-
       state.loading = false;
       state.error = action.payload || "Something went wrong";
     });
