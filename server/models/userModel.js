@@ -12,14 +12,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     select: false,
   },
-  avatar: {
-    publicId: {
-      type: String,
-    },
-    url: {
-      type: String,
-    },
-  },
 });
 
 userSchema.pre("save", async function () {

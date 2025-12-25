@@ -13,7 +13,7 @@ export const registerUser = asyncHandler(async function (req, res, next) {
     return res.status(400).json({ errors: error.array() });
   }
 
-  const { email, password, avatar } = req.body;
+  const { email, password } = req.body;
 
   const existingUser = await userModel.findOne({ email });
 
