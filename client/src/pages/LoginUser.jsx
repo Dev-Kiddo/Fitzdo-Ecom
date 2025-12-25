@@ -93,7 +93,7 @@ const LoginUser = () => {
             </p>
           </div>
 
-          <CustomButton btnType="submit" btnText="Login" />
+          <CustomButton btnType="submit" btnText={loading ? "Loading..." : "Login"} />
         </form>
       </div>
     </section>

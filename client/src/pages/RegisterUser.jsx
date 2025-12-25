@@ -114,7 +114,7 @@ const RegisterUser = () => {
               .
             </p>
           </div>
-          <CustomButton btnType="submit" btnText="Register" />
+          <CustomButton btnType="submit" btnText={loading ? "Loading..." : "Register"} />
         </form>
       </div>
     </section>
