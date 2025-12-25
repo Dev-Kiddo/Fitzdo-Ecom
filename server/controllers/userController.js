@@ -15,6 +15,10 @@ export const registerUser = asyncHandler(async function (req, res, next) {
 
   const { email, password } = req.body;
 
+  if (!email || !password) {
+    return next(new AppError(400, "All fields required"));
+  }
+
   const existingUser = await userModel.findOne({ email });
 
   if (existingUser) {
@@ -44,6 +48,10 @@ export const loginUser = asyncHandler(async function (req, res, next) {
     return res.status(400).json({ errors: error.array() });
   }
   const { email, password } = req.body;
+
+  if (!email || !password) {
+    return next(new AppError(400, "All fields required"));
+  }
 
   const user = await userModel.findOne({ email }).select("+password");
 
