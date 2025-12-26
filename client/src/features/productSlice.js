@@ -1,9 +1,12 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const fetchProducts = createAsyncThunk("products/fetchProducts", async (payload, { rejectWithValue }) => {
+  // console.log("API_URL", import.meta.env);
+
   try {
-    const { data } = await axios("http://localhost:8000/api/v1/products");
+    const { data } = await axios(`${API_URL}/api/v1/products`);
     console.log("Api_Product_Data:", data);
 
     return data;
@@ -14,7 +17,7 @@ export const fetchProducts = createAsyncThunk("products/fetchProducts", async (p
 
 export const fetchProduct = createAsyncThunk("products/fetchProduct", async (payload, { rejectWithValue }) => {
   try {
-    const { data } = await axios(`http://localhost:8000/api/v1/products/${payload.id}`);
+    const { data } = await axios(`${API_URL}/api/v1/products/${payload.id}`);
     console.log("Product_Data:", data);
 
     return data;

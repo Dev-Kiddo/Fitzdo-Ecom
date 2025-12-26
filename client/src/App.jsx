@@ -15,6 +15,7 @@ function App() {
           <Route path="login" element={<LoginUser />} />
           <Route path="register" element={<RegisterUser />} />
           <Route path="product-detail/:id" element={<ProductDetail />} />
+          <Route path="*" element={<Products />} />
         </Route>
       </Routes>
     </BrowserRouter>

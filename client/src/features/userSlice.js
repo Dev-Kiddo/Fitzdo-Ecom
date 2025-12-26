@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const registerUser = createAsyncThunk("user/registerUser", async (payload, { rejectWithValue }) => {
   try {
-    const { data } = await axios.post("http://localhost:8000/api/v1/register", payload);
+    const { data } = await axios.post(`${API_URL}/api/v1/register`, payload);
     console.log("Api_User_Data:", data);
     return data;
   } catch (error) {
@@ -13,7 +14,7 @@ export const registerUser = createAsyncThunk("user/registerUser", async (payload
 
 export const loginUser = createAsyncThunk("user/loginUser", async (payload, { rejectWithValue }) => {
   try {
-    const { data } = await axios.post("http://localhost:8000/api/v1/login", payload);
+    const { data } = await axios.post(`${API_URL}/api/v1/login`, payload);
     console.log("Api_Login_Data:", data);
     return data;
   } catch (error) {
