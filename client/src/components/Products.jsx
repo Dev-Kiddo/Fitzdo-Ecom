@@ -12,9 +12,9 @@ const Products = () => {
 
   const { products, loading, error } = useSelector((state) => state.product);
 
-  console.log(loading, error, products);
+  // console.log(loading, error, products);
 
-  console.log("products:", products);
+  // console.log("products:", products);
 
   useEffect(
     function () {
