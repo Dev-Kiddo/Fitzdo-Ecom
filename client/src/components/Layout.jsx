@@ -13,16 +13,16 @@ const Layout = () => {
             <img className="w-30 mt-5 place-self-center" src="/fitzdo.svg" alt="sidebar-logo" />
           </Link>
         </div>
-        <div className="flex flex-col gap-2 min-h-screen">
+        <div className="flex flex-col gap-2  min-h-screen">
           <NavBar />
           <div className="bg-white py-2 px-4 rounded-xl h-full">
             <Outlet />
           </div>
         </div>
+        <footer className="w-full max-w-7xl h-20 col-span-2 items-center justify-center mx-auto bg-white py-2 px-4 rounded-xl">
+          <Footer />
+        </footer>
       </main>
-      <footer className="w-full max-w-7xl h-20 flex items-center justify-center mx-auto bg-white py-2 px-4 rounded-xl">
-        <Footer />
-      </footer>
     </>
   );
 };
