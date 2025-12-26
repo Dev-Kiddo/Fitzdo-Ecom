@@ -3,7 +3,7 @@ import React from "react";
 const Loading = ({ width = 8, height = 8 }) => {
   return (
     <div className="text-center mt-10 w-full" role="status">
-      <div className={`w-${width} mx-auto`}>
+      <div className={`w-8 mx-auto`}>
         <svg
           aria-hidden="true"
           className={`inline w-${width} h-${height} text-gray-dark animate-spin fill-blue`}
