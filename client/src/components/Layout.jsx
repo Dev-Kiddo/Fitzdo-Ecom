@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <>
       <main className="w-full max-w-7xl mx-auto grid grid-cols-[200px_1fr] gap-2 m-2">
-        <div className="bg-white py-2 px-4 rounded-xl min-h-screen">
+        <div className="bg-white py-2 px-4 rounded-xl">
           <Link to="/">
             <img className="w-30 mt-5 place-self-center" src="/fitzdo.svg" alt="sidebar-logo" />
           </Link>
